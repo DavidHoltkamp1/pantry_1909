@@ -20,7 +20,9 @@ attr_reader :name, :ingredients_required
 
   def total_calories
     #need the calories of each ingredient, summed with the amount required
-    
+    ingredients.map do |ingredient|
+      ingredient.calories * amount_required(ingredient)
+    end.sum 
   end
 
 
